@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生徒管理台帳- {{title}}</title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <!-- ヘッド部分 -->
+        {% block headline %}{% endblock %}
+    </header>
+    <main>
+        <!-- メインコンテンツ -->
+        {% block main %}{% endblock%}
+    </main>
+
+    <footer>
+        <!-- フッター -->
+        {% block footer %}
+            コピーライト
+        {% endblock %}
+    </footer>
+</body>
+</html>

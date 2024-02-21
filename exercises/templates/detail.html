@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>生徒台帳詳細画面</title>
+</head>
+
+<body>
+    <div>
+
+        <h3>生徒台帳 詳細画面</h3>
+
+        <div>
+            <div style="float: left;">
+                <input class="btn btn-dark" type="submit" value="一覧へ" id="list">
+            </div>
+            <form name="newform" action="{{url_for('send_post')}}" method="POST">
+            <div style="float: left;">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    更新
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">更新</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>更新してもよろしいですか？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-dark" id="udbtn">更新</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            
+            <div style="float: left;">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    削除
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">削除</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>削除してもよろしいですか？</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-dark" id="dbtn">削除</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="入力欄" style="clear: left;">
+            <h4> 入力欄</h4>
+
+            <div class="row" style="width: 800px;">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="フリガナ" aria-label="ruby"
+                        value="{{stu['hurigana']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="クラス" aria-label="class"
+                        value="{{stu['classname']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="所属" aria-label="affiliation"
+                        value="{{stu['base']}}">
+                </div>
+            </div>
+
+            <div class="row" style="width: 800px;">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="名前" aria-label="name"
+                        value="{{stu['kaname']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="生年月日" aria-label="birthday"
+                        value="{{stu['birthday']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="歳" aria-label="age" value="{{stu['age']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="性別" aria-label="gender"
+                        value="{{stu['gender']}}">
+                </div>
+            </div>
+
+            <div class="row" style="width: 800px;">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="電話番号" aria-label="tel" value="{{stu['tel']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="E-mail" aria-label="email"
+                        value="{{stu['email']}}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="G-mail" aria-label="gmail"
+                        value="{{stu['gmail']}}">
+                </div>
+            </div>
+
+        </div>
+        <h4>備考欄</h4>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" style="height:300px; width: 800px;" value="{{stu['bikou']}}">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let dbtn = document.getElementById('dbtn');
+        dbtn.addEventListener('click', function () {
+            //submit()でフォームの内容を送信
+            document.myform.submit();
+        });
+
+        let udbtn = document.getElementById('udbtn');
+        udbtn.addEventListener('click', function () {
+            //submit()でフォームの内容を送信
+            document.myform.submit();
+        });
+
+        let list_but = document.getElementById('list')
+        list_but.addEventListener('click', event => {
+            window.location.assign("{{url_for('listload')}}")
+        })
+
+
+    </script>
+
+</body>
+
+</html>
